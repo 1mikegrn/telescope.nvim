@@ -4,7 +4,7 @@ local p_window = {}
 
 function p_window.get_window_options(picker, max_columns, max_lines)
   local layout_strategy = (
-      picker.layout_strategy or require("telescope.defaults.layout_strategy")
+      picker.layout_strategy or require("telescope.config").values["layout_strategy"]
   )
 
   local getter = require("telescope.pickers.layout_strategies")[layout_strategy]
