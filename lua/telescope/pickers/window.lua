@@ -3,7 +3,10 @@ local resolve = require "telescope.config.resolve"
 local p_window = {}
 
 function p_window.get_window_options(picker, max_columns, max_lines)
-  local layout_strategy = picker.layout_strategy
+  local layout_strategy = (
+      picker.layout_strategy or require("telescope.defaults.layout_strategy")
+  )
+
   local getter = require("telescope.pickers.layout_strategies")[layout_strategy]
 
   if not getter then
